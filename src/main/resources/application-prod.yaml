@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /identity
+
+
+spring:
+  datasource:
+    url: ${DBMS_CONNECTION:jdbc:mysql://localhost:3306/ecommerce_project
+    driverClassName: "com.mysql.cj.jdbc.Driver"
+    username: ${DBMS_USERNAME:root}
+    password: ${DBMS_PASSWORD:123456789}
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show sql: true
+
+jwt:
+
+  valid-duration: 7200 #in second
+  refreshable-duration: 72000 #in second
+
+
