@@ -19,8 +19,9 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String userId;
-    @Column(name="name",unique = true,columnDefinition = "VARCHAR(255) COLLATE utf8mb4_unicode_ci")
+    @Column(name = "password", nullable = false)
     private String name;
+    @Column(name = "email", unique = true, nullable = false)
     private String passWord;
     @ManyToMany
     private Set<Role> roles = new HashSet<>();

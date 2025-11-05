@@ -24,16 +24,21 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String customerId;
+    @Column(name = "first_name", nullable = false, length = 50)
     private String firstName;
+    @Column(name = "last_name", nullable = false, length = 50)
     private String lastName;
+    @Column(nullable = false)
     private LocalDate dob;
+    @Column(nullable = false)
     private boolean gender;
     @CreationTimestamp
     private LocalDateTime createAt;
     @UpdateTimestamp
     private LocalDateTime updateAt;
     @OneToOne(
-            optional = false
+            optional = false,
+            fetch = FetchType.LAZY
     )
     @JoinColumn(
             name = "user_id", // cột FK trong bảng customer
@@ -43,29 +48,20 @@ public class Customer {
     )
     private User user;
 
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Address> addresses = new HashSet<>();
     @OneToMany(
             mappedBy = "customer",
             cascade = CascadeType.ALL,
-            orphanRemoval = true
+            fetch = FetchType.LAZY
+
     )
-    private Set<Address> addresses = new HashSet<>();
-//    @OneToMany(
-//            mappedBy = "customer",
-//            cascade = CascadeType.ALL,
-//            fetch = FetchType.LAZY
-//
-//    )
-//    private Set<Review> reviews = new HashSet<>();
-    @OneToOne(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            mappedBy = "customer"
-    )
+    private Set<Review> reviews = new HashSet<>();
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Cart cart;
-//    @OneToMany(
-//            mappedBy = "customer"
-//    )
-//    private Set<Order> orders = new HashSet<>();
-//
+
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    private Set<Order> orders = new HashSet<>();
+
 }
 

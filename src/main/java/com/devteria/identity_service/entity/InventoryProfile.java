@@ -1,6 +1,7 @@
 package com.devteria.identity_service.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -17,17 +18,10 @@ import java.time.LocalDateTime;
 )
 public class InventoryProfile {
     @Id
-//    @SequenceGenerator(
-//            name = "inventory_profile_sequence",
-//            sequenceName = "inventory_profile_sequence",
-//            allocationSize = 1
-//    )
-//    @GeneratedValue(
-//            strategy = GenerationType.SEQUENCE,
-//            generator = "inventory_profile_sequence"
-//    )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long inventoryId;
+    @Column(nullable = false)
+    @Min(0)
     private Integer quantity;
     @CreationTimestamp
     private LocalDateTime createAt;

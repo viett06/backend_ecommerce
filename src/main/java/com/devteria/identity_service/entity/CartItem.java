@@ -1,6 +1,7 @@
 package com.devteria.identity_service.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -18,6 +19,8 @@ import java.time.LocalDateTime;
 public class CartItem {
     @EmbeddedId
     private CartItemId cartItemId;
+    @Column(nullable = false)
+    @Min(1)
     private Long quantity;
     @CreationTimestamp
     private LocalDateTime createAt;
@@ -29,7 +32,9 @@ public class CartItem {
     )
     @JoinColumn(
             name = "cart_id",
-            referencedColumnName = "cartId"
+            referencedColumnName = "cartId",
+            nullable = false
+
     )
     private Cart cart;
     @ManyToOne

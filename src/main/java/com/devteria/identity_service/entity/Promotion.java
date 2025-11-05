@@ -18,28 +18,20 @@
 //)
 //public class Promotion {
 //    @Id
-//    @SequenceGenerator(
-//            name = "promotion_sequence",
-//            sequenceName = "promotion_sequence",
-//            allocationSize = 1
-//    )
-//    @GeneratedValue(
-//            strategy = GenerationType.SEQUENCE,
-//            generator = "promotion_sequence"
-//    )
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private Long promotionId;
-//    private int code;
+//    private String code;
 //    private String description;
 //    private String discountType;
 //    private BigDecimal discountValue;
 //    private LocalDateTime startDate;
 //    private LocalDateTime endDate;
-//    @OneToMany(
-//            mappedBy = "promotion"
-//    )
-//    private Set<PromotionProduct> promotionProducts = new HashSet<>();
-//    @OneToMany(
-//            mappedBy = "promotion"
-//    )
-//    private Set<OrderPromotion> orderPromotions = new HashSet<>();
+////    @OneToMany(
+////            mappedBy = "promotion"
+////    )
+////    private Set<PromotionProduct> promotionProducts = new HashSet<>();
+////    @OneToMany(
+////            mappedBy = "promotion"
+////    )
+////    private Set<OrderPromotion> orderPromotions = new HashSet<>();
 //}

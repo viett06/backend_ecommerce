@@ -24,6 +24,6 @@ public class CustomerResponse {
     private Set<AddressResponse> addresses;
 //    private Set<Review> reviews;
     private CartResponse cartResponse;
-//    private Set<Order> orders;
+    private Set<OrderResponse> orderResponses;
 
 }

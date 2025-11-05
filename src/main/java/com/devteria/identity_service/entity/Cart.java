@@ -19,15 +19,6 @@ import java.util.Set;
 )
 public class Cart {
     @Id
-//    @SequenceGenerator(
-//            name = "cart_sequence",
-//            sequenceName = "cart_sequence",
-//            allocationSize = 1
-//    )
-//    @GeneratedValue(
-//            strategy = GenerationType.SEQUENCE,
-//            generator = "cart_sequence"
-//    )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cartId;
     @CreationTimestamp

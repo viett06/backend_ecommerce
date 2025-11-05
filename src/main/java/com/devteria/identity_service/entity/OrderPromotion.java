@@ -8,7 +8,8 @@
 //import lombok.Setter;
 //
 //import java.math.BigDecimal;
-//import java.time.LocalDate;
+//
+//import java.time.LocalDateTime;
 //
 //@Entity
 //@AllArgsConstructor
@@ -44,6 +45,6 @@
 //    )
 //    private Promotion promotion;
 //    private BigDecimal discountValue;
-//    private LocalDate appliedDate;
+//    private LocalDateTime appliedDate;
 //
 //}

@@ -1,6 +1,7 @@
 package com.devteria.identity_service.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Positive;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -20,31 +21,28 @@ import java.util.Set;
 )
 public class Product {
     @Id
-//    @SequenceGenerator(
-//            name = "product_sequence",
-//            sequenceName = "product_sequence",
-//            allocationSize = 1
-//    )
-//    @GeneratedValue(
-//            strategy = GenerationType.SEQUENCE,
-//            generator = "product_sequence"
-//    )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
+    @Column(nullable = false, length = 255)
     private String name;
+    @Column(columnDefinition = "TEXT")
     private String description;
+    @Column(nullable = false, length = 100)
     private String brand;
+    @Column(nullable = false, precision = 10, scale = 2)
+    @Positive
     private BigDecimal price;
+    @Column(name = "image_url", length = 500)
     private String imageUrl;
     @CreationTimestamp
     private LocalDateTime createAt;
     @UpdateTimestamp
     private LocalDateTime updateAt;
-//    @OneToMany(
-//            mappedBy = "product",
-//            orphanRemoval = true
-//    )
-//    private Set<Review> reviews = new HashSet<>();
+    @OneToMany(
+          mappedBy = "product",
+         orphanRemoval = true
+    )
+   private Set<Review> reviews = new HashSet<>();
     @OneToMany(
             mappedBy = "product",
             cascade = CascadeType.ALL,
@@ -69,9 +67,9 @@ public class Product {
 //            orphanRemoval = true
 //    )
 //    private Set<PromotionProduct> promotionProducts = new HashSet<>();
-//    @OneToMany(
-//            mappedBy = "product"
-//    )
-//    private Set<OrderItem> orderItems = new HashSet<>();
+    @OneToMany(
+            mappedBy = "product"
+    )
+    private Set<OrderItem> orderItems = new HashSet<>();
 
 }

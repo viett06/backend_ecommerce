@@ -20,7 +20,27 @@ public enum ErrorCode {
     PRODUCT_NOT_EXISTED(1013, "Product not existed", HttpStatus.NOT_FOUND),
     CART_ITEM_NOT_EXISTED(1014, "cart item not existed", HttpStatus.NOT_FOUND),
     CATEGORY_NOT_EXISTED(1015, "category not existed", HttpStatus.NOT_FOUND),
-    INVENTORY_PROFILE_NOT_EXISTED(1016, "inventory profile not existed", HttpStatus.NOT_FOUND)
+    INVENTORY_PROFILE_NOT_EXISTED(1016, "inventory profile not existed", HttpStatus.NOT_FOUND),
+    ORDER_NOT_FOUND(1017, "Order not existed", HttpStatus.NOT_FOUND),
+    CUSTOMER_NOT_FOUND(1018, "Customer not existed", HttpStatus.NOT_FOUND),
+    ORDER_ALREADY_DELIVERED(1019, "Order has already been delivered and cannot be cancelled", HttpStatus.BAD_REQUEST),
+    ORDER_ITEM_NOT_FOUND(1020, "OrderItem not existed", HttpStatus.NOT_FOUND),
+    ORDER_ITEM_ALREADY_EXISTS(1021, "Order item already exists in this order", HttpStatus.BAD_REQUEST),
+    SHIPMENT_NOT_FOUND(1022, "Shipment not found", HttpStatus.NOT_FOUND),
+    SHIPMENT_TRACKING_NUMBER_EXISTS(1023, "Tracking number already exists", HttpStatus.BAD_REQUEST),
+    SHIPMENT_HAS_ORDERS(1024, "Cannot delete shipment with associated orders", HttpStatus.BAD_REQUEST),
+    INVALID_DATE_RANGE(1025, "Start date must be before end date", HttpStatus.BAD_REQUEST),
+    PAYMENT_NOT_FOUND(1026, "Payment not found", HttpStatus.NOT_FOUND),
+    PAYMENT_HAS_ORDERS(1027, "Cannot delete payment with associated orders", HttpStatus.BAD_REQUEST),
+    PAYMENT_GATEWAY_ERROR(1028, "Payment gateway error", HttpStatus.INTERNAL_SERVER_ERROR),
+    PAYMENT_SIGNATURE_ERROR(1029, "Payment signature error", HttpStatus.INTERNAL_SERVER_ERROR),
+    PAYMENT_SIGNATURE_INVALID(1030, "Invalid payment signature", HttpStatus.BAD_REQUEST),
+    PAYMENT_PROCESSING_ERROR(1031, "Payment processing error", HttpStatus.INTERNAL_SERVER_ERROR),
+    INSUFFICIENT_BALANCE(1032, "Insufficient balance", HttpStatus.BAD_REQUEST);
+
+
+
+
 
     ;
     private int code;

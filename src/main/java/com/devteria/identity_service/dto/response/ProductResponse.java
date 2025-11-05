@@ -1,6 +1,6 @@
 package com.devteria.identity_service.dto.response;
 
-import com.devteria.identity_service.entity.InventoryProfile;
+
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -26,5 +26,5 @@ public class ProductResponse {
     @UpdateTimestamp
     private LocalDateTime updateAt;
     private InventoryProfileResponse inventoryProfileResponse;
-    //private Set<CartItemResponse> cartItemResponses;
+    private Set<CartItemResponse> cartItemResponses;
 }

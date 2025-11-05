@@ -16,21 +16,18 @@ import java.time.LocalDateTime;
 )
 public class Address {
     @Id
-    @SequenceGenerator(
-            name = "address_sequence",
-            sequenceName = "address_sequence",
-            allocationSize = 1
-            )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "address_sequence"
 
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long addressId;
+    @Column(nullable = false, length = 255)
     private String street;
+    @Column(nullable = false, length = 100)
     private String city;
+    @Column(name = "postal_code", nullable = false, length = 20)
     private String postalCode;
+    @Column(nullable = false, length = 100)
     private String country;
+    @Column(name = "is_default", nullable = false)
     private boolean defaultAddress;
     @CreationTimestamp
     private LocalDateTime createAt;

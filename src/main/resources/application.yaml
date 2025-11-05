@@ -20,5 +20,15 @@ jwt:
   signerKey: "nUfJ0IIEZWvOFqlud2hLrdVgGkYLYNH6JR6NkF6bAMq+yhdoQrah87JcbUsnXzQ4"
   valid-duration: 3600 #in second
   refreshable-duration: 36000 # in second
+# application.yml
+payment:
+  momo:
+    partner-code: ${MOMO_PARTNER_CODE:MOMOIQA420180417}
+    access-key: ${MOMO_ACCESS_KEY:S1d2reGoi3vfk7WB}
+    secret-key: ${MOMO_SECRET_KEY:PTVWTUvD6C1x9X6ZQ2RhVrMvHJK2q8pn}
+    endpoint: https://test-payment.momo.vn/v2/gateway/api/create
+    return-url: http://localhost:8080/api/v1/payments/momo/return
+    notify-url: http://localhost:8080/api/v1/payments/momo/callback
+    request-type: captureWallet
 
 

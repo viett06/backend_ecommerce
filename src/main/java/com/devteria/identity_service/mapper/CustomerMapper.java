@@ -17,6 +17,7 @@ public interface CustomerMapper {
     @Mapping(source = "customerId", target = "customerId") // <-- thêm dòng này
     @Mapping(source = "user", target = "userResponse")
     @Mapping(source = "cart", target = "cartResponse")
+    @Mapping(source = "orders", target = "orderResponses")
     CustomerResponse toCustomerResponse(Customer customer);
     @Mapping(target = "user", ignore = true)
     void updateToCustomer(@MappingTarget Customer customer, CustomerUpdateRequest customerUpdateRequest);
